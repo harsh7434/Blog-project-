@@ -3,7 +3,17 @@ const port = 8001;
 const app = express();
 const path = require('path');
 
-const db = require("./config/mongoose");
+// const db = require("./config/mongoose");
+
+const mongoose = require('mongoose');
+mongoose.connect(("mongodb+srv://rathodharsh7434:Dimpal74348@cluster0.pucwosc.mongodb.net/blog"), {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+})
+    .then(() => console.log('Database Connected'))
+    .catch((err) => console.log(err));
+
+
 const Admin = require("./models/admin");
 
 app.set("view engine","ejs");
